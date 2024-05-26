@@ -1,36 +1,10 @@
-import { graph, config } from '@grafbase/sdk';
+import { graph, config } from '@grafbase/sdk'
 
 // Welcome to Grafbase!
 //
 // Configure authentication, data sources, resolvers and caching for your GraphQL API.
 
-const g = graph.Standalone();
-
-const User = g.type('User', {
-  name: g.string(),
-  email: g.string(),
-  avatarUrl: g.url(),
-  description: g.string().optional(),
-  githubUrl: g.url().optional(),
-  linkedInUrl: g.url().optional(),
-  // projects: g.relation('Project', { // Establish a relation to Project type
-  //   foreignKey: 'createdBy', // Specify the foreign key field in Project
-  // }),
-});
-
-const Project = g.type('Project', {
-  title: g.string(),
-  description: g.string(),
-  image: g.url(),
-  liveSiteUrl: g.url(),
-  githubUrl: g.url(),
-  category: g.string(),
-  // createdBy: g.relation('User', { // Establish a relation to User type
-  //   references: User.fields.id, // Reference the User's ID field
-  // }),
-});
-
-
+const g = graph.Standalone()
 
 // Data Sources - https://grafbase.com/docs/connectors
 //
