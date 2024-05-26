@@ -7,15 +7,15 @@ import { graph, config } from '@grafbase/sdk';
 const g = graph.Standalone();
 
 const User = g.type('User', {
-  name: g.string().length({ min: 2, max: 20 }),
-  email: g.string().unique(),
+  name: g.string(),
+  email: g.string(),
   avatarUrl: g.url(),
   description: g.string().optional(),
   githubUrl: g.url().optional(),
   linkedInUrl: g.url().optional(),
-  projects: g.relation('Project', { // Establish a relation to Project type
-    foreignKey: 'createdBy', // Specify the foreign key field in Project
-  }),
+  // projects: g.relation('Project', { // Establish a relation to Project type
+  //   foreignKey: 'createdBy', // Specify the foreign key field in Project
+  // }),
 });
 
 const Project = g.type('Project', {
@@ -25,9 +25,9 @@ const Project = g.type('Project', {
   liveSiteUrl: g.url(),
   githubUrl: g.url(),
   category: g.string(),
-  createdBy: g.relation('User', { // Establish a relation to User type
-    references: User.fields.id, // Reference the User's ID field
-  }),
+  // createdBy: g.relation('User', { // Establish a relation to User type
+  //   references: User.fields.id, // Reference the User's ID field
+  // }),
 });
 
 
